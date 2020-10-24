@@ -19,5 +19,5 @@ class Board{
 
 }
 
-let board = new Board()
+// let board = new Board()
   // board.draw()
