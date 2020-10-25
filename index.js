@@ -19,7 +19,7 @@ window.onload = () => {
     // 2. Limpiar el canvas
     // clearObstacles()
     // generateObstacles()
-    // clearCanvas()
+    clearCanvas()
     // checkCollitions()
     // 3. Pintar los elementos del juego
     invader.draw()
