@@ -3,7 +3,7 @@ body{
   text-align: center;
 }
 
-/* #canvas {
-  background-color: dimgray;
+canvas {
+  background-color: rgba(255,255,255,.5);
   /* align-items: center; */
 } */

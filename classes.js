@@ -48,10 +48,10 @@ class Nave1 extends MotherShip {
     this.health = health,
     this.strength = strength
 
-    this.x = 0
+    this.x = $canvas.width*.4
     this.y = 0
-    this.width = $canvas.width
-    this.height = $canvas.height
+    this.width = $canvas.width*.25
+    this.height = $canvas.height*.1
     this.img = new Image()
     this.img.src = './images/nave1.png'
   }
