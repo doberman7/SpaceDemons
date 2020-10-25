@@ -68,12 +68,17 @@ class Nave1 extends MotherShip {
     }
   }
   draw() {
-
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
-    // ctx.fillStyle = "forestgreen"
-    // ctx.fillRect(this.x, this.y, this.width, this.height)
+    positions.push([this.x, this.y])
+  }
+  shadow() {
+    ctx.drawImage(this.img, this.x, this.y+8, this.width, this.height)
 
   }
+
+
+
+
   move(direction){
     switch (direction) {
       case "UP":

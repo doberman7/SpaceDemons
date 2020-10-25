@@ -7,6 +7,7 @@ let frames = 0
 let ratio = 200
 let score = 0
 let obstacles = []
+let positions =[]
 
 
 window.onload = () => {
@@ -24,6 +25,10 @@ window.onload = () => {
     // 3. Pintar los elementos del juego
     invader.draw()
     p1.draw()
+    p1.shadow()
+
+
+
 
     // drawObstacles()
     // printScore()
