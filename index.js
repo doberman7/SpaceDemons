@@ -1,4 +1,5 @@
 const p1 = new Nave1(10,10,0,0)
+const p2 = new Nave2(10,10,0,0)
 // const invader1 = new MotherShip(10,10,0,0)
 // let board = new Board
 let intervalId
@@ -22,6 +23,7 @@ window.onload = () => {
     // checkCollitions()
     // 3. Pintar los elementos del juego
     p1.draw()
+    p2.draw()
 
     // drawObstacles()
     // printScore()

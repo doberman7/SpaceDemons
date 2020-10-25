@@ -74,3 +74,37 @@ class Nave1 extends MotherShip {
 
   }
 }
+
+class Nave2 extends MotherShip {
+  constructor(health, strength, x, y) {
+    super(health, strength)
+    this.health = health,
+    this.strength = strength
+
+    this.x = $canvas.width*.4
+    this.y = $canvas.height*.9
+    this.width = $canvas.width*.25
+    this.height = $canvas.height*.1
+    this.img = new Image()
+    this.img.src = './images/nave1.png'
+  }
+  // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
+  receiveDamage(damage) {
+    this.health = this.health - damage
+
+    if (this.health > 0) {
+      this.alive = true;
+    } else if (this.health === 0) {
+      this.alive = false;
+
+    }
+  }
+  draw() {
+
+    ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+    // ctx.fillStyle = "forestgreen"
+    // ctx.fillRect(this.x, this.y, this.width, this.height)
+
+  }
+}
+
