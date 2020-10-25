@@ -39,6 +39,23 @@ class MotherShip {
     return
   }
 
+  moveInvader(){
+    if (frames % ratio === 0) {
+    const min = 100
+    const max = $canvas.height - 100
+    const randomY = Math.floor(Math.random() * (max - min))
+    debugger
+    if (this.y > 0) return
+    this.y-=randomY
+    // const gap = 100
+    obstacles.push(new Obstacle(0, randomHeight))
+    obstacles.push(
+      new Obstacle(randomHeight + gap, $canvas.height - randomHeight - gap)
+    )
+  }
+
+  }
+
 }
 
 
@@ -71,10 +88,7 @@ class Nave1 extends MotherShip {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     positions.push([this.x, this.y])
   }
-  shadow() {
-    ctx.drawImage(this.img, this.x, this.y+8, this.width, this.height)
 
-  }
 
 
 
