@@ -20,7 +20,7 @@ class Board{
 }
 // Factory oof ships
 class motherShip {
-  constructor(health, strength,xAxis, yAxis∫) {
+  constructor(health, strength,xAxis, yAxis) {
     this.health = health,
     this.strength = strength,
     this.xAxis = xAxis,
