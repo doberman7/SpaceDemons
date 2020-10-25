@@ -1,10 +1,8 @@
-const classes = require("classes.js"),
-debugger
-
-let intervalId
+let nooo = new Board;
+console.log(nooo);
 let frames = 0
-let ratio = 200
 let score = 0
+let ratio = 200
 let obstacles = []
 
 function update() {
@@ -20,3 +18,4 @@ function update() {
   drawObstacles()
   printScore()
 }
+//stars va qui

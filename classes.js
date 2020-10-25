@@ -19,7 +19,7 @@ class Board{
 
 }
 // Factory oof ships
-class motherShip {
+class MotherShip {
   constructor(health, strength,xAxis, yAxis) {
     this.health = health,
     this.strength = strength,
@@ -37,7 +37,7 @@ class motherShip {
 
 
 // nave 1
-class Nave1 extends motherShip {
+class Nave1 extends MotherShip {
   constructor(type, health, strength) {
     super(type, health, strength)
     this.type = type,
@@ -65,7 +65,7 @@ class Nave1 extends motherShip {
 }
 
 // nave2
-class nave2 extends motherShip {
+class Nave2 extends MotherShip {
   receiveDamage(damage) {
     this.health = this.health - damage
 
