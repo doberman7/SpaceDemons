@@ -24,8 +24,10 @@ window.onload = () => {
     // checkCollitions()
     // 3. Pintar los elementos del juego
     invader.draw()
+    invader.moveInvader()
+    
     p1.draw()
-    p1.shadow()
+    // p1.shadow()
 
 
 
