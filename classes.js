@@ -49,11 +49,11 @@ class Nave1 extends MotherShip {
     this.strength = strength
 
     this.x = $canvas.width*.4
-    this.y = 0
+    this.y = $canvas.height*.9
     this.width = $canvas.width*.25
     this.height = $canvas.height*.1
     this.img = new Image()
-    this.img.src = './images/nave1.png'
+    this.img.src = './images/nave2.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
@@ -82,11 +82,11 @@ class Nave2 extends MotherShip {
     this.strength = strength
 
     this.x = $canvas.width*.4
-    this.y = $canvas.height*.9
+    this.y = 0
     this.width = $canvas.width*.25
     this.height = $canvas.height*.1
     this.img = new Image()
-    this.img.src = './images/nave2.png'
+    this.img.src = './images/nave1.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
