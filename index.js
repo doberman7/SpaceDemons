@@ -1,5 +1,5 @@
-const p1 = new Nave1(10,10,0,0)
-const invader = new Nave2(10,10,0,0)
+const p1 = new Nave1(10, 10, 0, 0)
+const invader = new Nave2(10, 10, 0, 0)
 // const invader1 = new MotherShip(10,10,0,0)
 // let board = new Board
 let intervalId
@@ -30,9 +30,12 @@ window.onload = () => {
   }
 
   function start() {
-
     if (intervalId) return
     intervalId = setInterval(update, 1000 / 60)
+  }
+
+  function clearCanvas() {
+    ctx.clearRect(0, 0, $canvas.width, $canvas.height)
   }
 
   $startBtn.onclick = start

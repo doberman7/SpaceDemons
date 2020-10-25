@@ -29,6 +29,7 @@ class MotherShip {
     this.height = 159
     this.img = new Image()
     this.img.src = "./images/nave1.png"
+    this.vel = 10
   }
   attack() {
     return this.strength
@@ -73,7 +74,26 @@ class Nave1 extends MotherShip {
     // ctx.fillRect(this.x, this.y, this.width, this.height)
 
   }
+  move(direction){
+    switch (direction) {
+      case "UP":
+        if (this.y <= 0) return
+        return (this.y -= this.vel)
+      case "DOWN":
+        if (this.y >= $canvas.height - this.height) return
+        return (this.y += this.vel)
+      case "LEFT":
+        if (this.x <= 0) return
+        return (this.x -= this.vel)
+      case "RIGHT":
+        if (this.x >= $canvas.width - this.width) return
+        return (this.x += this.vel)
+      default:
+        throw new Error("Invalid direction")
+    }
+  }
 }
+
 
 class Nave2 extends MotherShip {
   constructor(health, strength, x, y) {
