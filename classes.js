@@ -6,25 +6,29 @@ class Board {
     this.height = $canvas.height
     this.img = new Image()
     this.img.src = './images/fondo.jpg'
-    this.img.onload = () => {
-      this.draw()
-    }
+    // this.img.onload = () => {
+    //   this.draw()
+    // }
   }
   draw() {
-    // if(this.x <-$canvas.width) this.x = 0      //esto fué para mover a la izquierda
-    // this.x--
+
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+
     // ctx.drawImage(this.img, this.x + $canvas.width, this.y, this.width, this.height)
   }
 
 }
 // Factory oof ships
 class MotherShip {
-  constructor(health, strength, xAxis, yAxis) {
-    this.health = health,
+  constructor(health, strength, x, y) {
+      this.health = health,
       this.strength = strength,
-      this.xAxis = xAxis,
-      this.yAxis = yAxis
+      this.x = x,
+      this.y = y
+    this.width = 79
+    this.height = 159
+    this.img = new Image()
+    this.img.src = "./images/nave1.png"
   }
   attack() {
     return this.strength
@@ -33,21 +37,23 @@ class MotherShip {
     this.health = this.health - damage
     return
   }
-  draw() {
-    ctx.fillStyle = this.color
-    ctx.fillRect(this.x, this.y, this.width, this.height)
-  }
+
 }
 
 
 // nave 1
 class Nave1 extends MotherShip {
-  constructor(health, strength, xAxis, yAxis) {
+  constructor(health, strength, x, y) {
     super(health, strength)
-      this.health = health,
-      this.strength = strength
-      this.xAxis = xAxis,
-      this.yAxis = yAxis
+    this.health = health,
+    this.strength = strength
+
+    this.x = 0
+    this.y = 0
+    this.width = $canvas.width
+    this.height = $canvas.height
+    this.img = new Image()
+    this.img.src = './images/nave1.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
@@ -55,56 +61,16 @@ class Nave1 extends MotherShip {
 
     if (this.health > 0) {
       this.alive = true;
-      // return `${this.type} has received ${damage} points of damage`
     } else if (this.health === 0) {
       this.alive = false;
-      // return `${this.type} has died in act of combat`
 
     }
   }
+  draw() {
 
-  // battleCry() {
-  //   return `Odin Owns You All!`
-  // }
+    ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+    // ctx.fillStyle = "forestgreen"
+    // ctx.fillRect(this.x, this.y, this.width, this.height)
 
+  }
 }
-
-// nave2
-// class Nave2 extends MotherShip {
-//   constructor(health, strength) {
-//     super(health, strength)
-//     this.health = health,
-//       this.strength = strength
-//   }
-//   receiveDamage(damage) {
-//     this.health = this.health - damage
-//
-//     if (this.health > 0) {
-//       this.alive = true;
-//       // return `A nave2 has received ${damage} points of damage`
-//     } else if (this.health === 0) {
-//       this.alive = false;
-//       // return `A nave2 has died in combat`
-//
-//     }
-//   }
-// }
-
-// // War
-// class combat {
-//   constructor(){
-//     this.nave1Army=[]
-//     this.nave2Army=[]
-//   }
-//   addNave1(nave1){
-//     this.nave1Army.push(nave1)
-//   }
-//   addnave2(nave2){
-//     this.nave2Army.push(nave2)
-//   }
-//   nave1Attack(){
-//     nave2.receiveDamage=Nave1.strength
-//   }
-//   nave2Attack(){}
-//   showStatus(){}
-// }
