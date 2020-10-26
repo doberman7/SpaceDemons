@@ -10,6 +10,7 @@ let obstacles = []
 let positions =[]
 let positionsNave2 =[]
 let invadersNave2=[]
+let shoots=[]
 
 
 window.onload = () => {

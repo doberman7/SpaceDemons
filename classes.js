@@ -136,6 +136,9 @@ class Nave1 extends MotherShip {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     positions.push([this.x, this.y])
   }
+  shoot(){
+    ctx.generateShoot(this.x, this.y)
+  }
 
 
 

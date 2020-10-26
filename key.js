@@ -8,8 +8,9 @@ document.onkeydown = e => {
       return p1.move("LEFT")
     case "ArrowRight":
       return p1.move("RIGHT")
+    case "Space":
+      return p1.shoot("SHOOT")
     default:
       break
   }
 }
-
