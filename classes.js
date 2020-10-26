@@ -39,21 +39,71 @@ class MotherShip {
     return
   }
 
-  moveInvader(){
-    const min = 100
-    const max = $canvas.height - 100
-    const randomHeight = Math.floor(Math.random() * (max - min))
-    console.log(randomHeight)
-
-    if(this.x>=0 && this.x<$canvas.width){
-      this.x--
-      this.y++
-    } else if(this.x<$canvas.width){
-      this.x++
-      this.y--
-    }
+  randomizer(){
+    const min = 1
+    const max = 5
+    const random = Math.floor(Math.random() * (max - min) + min)
+    return random
   }
 
+  checkPosition(){
+    let postion=positionsNave2[positionsNave2.length-1]
+    console.log(postion)
+  }
+
+  moveInvader(){
+     if(this.y<400 && this.x>0 && this.x<$canvas.width){
+       let random=this.randomizer()
+      switch (random) {
+        case 1:
+          this.x-=10
+          this.y+=5
+          break;
+        case 2:
+          this.x+=8
+          this.y+=5
+          break;
+          case 3:
+            this.x+=20
+            this.y--
+            break;
+          case 4:
+            this.x-=20
+            this.y--
+            break;
+            case 5:
+              this.x+=7
+              this.y++
+              break;
+              default:
+                   break;
+      }} else {
+        let random=this.randomizer()
+      switch (random) {
+        case 1:
+          this.x-=10
+          this.y--
+          break;
+        case 2:
+          this.x+=10
+          this.y--
+          break;
+          case 3:
+            this.x+=10
+            this.y--
+            break;
+          case 4:
+            this.x-=10
+            this.y--
+            break;
+            case 5:
+              this.x+=10
+              this.y--
+              break;
+              default:
+                   break;
+      }
+     }}
 }
 
 
@@ -95,16 +145,16 @@ class Nave1 extends MotherShip {
     switch (direction) {
       case "UP":
         if (this.y <= 0) return
-        return (this.y -= this.vel)
+        return (this.y -= this.vel+20)
       case "DOWN":
         if (this.y >= $canvas.height - this.height) return
-        return (this.y += this.vel)
+        return (this.y += this.vel+20)
       case "LEFT":
         if (this.x < 0) return
-        return (this.x -= this.vel)
+        return (this.x -= this.vel+20)
       case "RIGHT":
         if (this.x >= $canvas.width - this.width) return
-        return (this.x += this.vel)
+        return (this.x += this.vel+20)
       default:
         throw new Error("Invalid direction")
     }
@@ -139,8 +189,7 @@ class Nave2 extends MotherShip {
   draw() {
 
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
-    // ctx.fillStyle = "forestgreen"
-    // ctx.fillRect(this.x, this.y, this.width, this.height)
+    positionsNave2.push([this.x, this.y])
 
   }
 }

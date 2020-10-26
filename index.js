@@ -8,6 +8,7 @@ let ratio = 200
 let score = 0
 let obstacles = []
 let positions =[]
+let positionsNave2 =[]
 
 
 window.onload = () => {
@@ -26,6 +27,7 @@ window.onload = () => {
     board.draw()
     invader.draw()
     invader.moveInvader()
+    invader.checkPosition()
     
     p1.draw()
     // p1.shadow()
