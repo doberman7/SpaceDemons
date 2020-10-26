@@ -1,7 +1,7 @@
 const p1 = new Nave1(10, 10, 0, 0)
 const invader = new Nave2(10, 10, 0, 0)
 // const invader1 = new MotherShip(10,10,0,0)
-// let board = new Board
+let board = new Board
 let intervalId
 let frames = 0
 let ratio = 200
@@ -23,6 +23,7 @@ window.onload = () => {
     clearCanvas()
     // checkCollitions()
     // 3. Pintar los elementos del juego
+    board.draw()
     invader.draw()
     invader.moveInvader()
     

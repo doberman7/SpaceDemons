@@ -6,9 +6,9 @@ class Board {
     this.height = $canvas.height
     this.img = new Image()
     this.img.src = './images/fondo.jpg'
-    // this.img.onload = () => {
-    //   this.draw()
-    // }
+    this.img.onload = () => {
+      this.draw()
+    }
   }
   draw() {
 
@@ -25,8 +25,8 @@ class MotherShip {
       this.strength = strength,
       this.x = x,
       this.y = y
-    this.width = 79
-    this.height = 159
+      this.width = $canvas.width*.25
+      this.height = $canvas.height*.1
     this.img = new Image()
     this.img.src = "./images/nave1.png"
     this.vel = 10
@@ -40,20 +40,18 @@ class MotherShip {
   }
 
   moveInvader(){
-    if (frames % ratio === 0) {
     const min = 100
     const max = $canvas.height - 100
-    const randomY = Math.floor(Math.random() * (max - min))
-    debugger
-    if (this.y > 0) return
-    this.y-=randomY
-    // const gap = 100
-    obstacles.push(new Obstacle(0, randomHeight))
-    obstacles.push(
-      new Obstacle(randomHeight + gap, $canvas.height - randomHeight - gap)
-    )
-  }
+    const randomHeight = Math.floor(Math.random() * (max - min))
+    console.log(randomHeight)
 
+    if(this.x>=0 && this.x<$canvas.width){
+      this.x--
+      this.y++
+    } else if(this.x<$canvas.width){
+      this.x++
+      this.y--
+    }
   }
 
 }
@@ -68,10 +66,10 @@ class Nave1 extends MotherShip {
 
     this.x = $canvas.width*.4
     this.y = $canvas.height*.9
-    this.width = $canvas.width*.25
-    this.height = $canvas.height*.1
+    // this.width = $canvas.width*.25
+    // this.height = $canvas.height*.1
     this.img = new Image()
-    this.img.src = './images/nave2.png'
+    this.img.src = './images/nave1.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
@@ -102,7 +100,7 @@ class Nave1 extends MotherShip {
         if (this.y >= $canvas.height - this.height) return
         return (this.y += this.vel)
       case "LEFT":
-        if (this.x <= 0) return
+        if (this.x < 0) return
         return (this.x -= this.vel)
       case "RIGHT":
         if (this.x >= $canvas.width - this.width) return
@@ -122,10 +120,10 @@ class Nave2 extends MotherShip {
 
     this.x = $canvas.width*.4
     this.y = 0
-    this.width = $canvas.width*.25
-    this.height = $canvas.height*.1
+    // this.width = $canvas.width*.25
+    // this.height = $canvas.height*.1
     this.img = new Image()
-    this.img.src = './images/nave1.png'
+    this.img.src = './images/nave2.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
