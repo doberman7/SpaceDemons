@@ -109,7 +109,7 @@ class MotherShip {
 
 // nave 1
 class Nave1 extends MotherShip {
-  constructor(health, strength, x, y) {
+  constructor(health, strength) {
     super(health, strength)
     this.health = health,
     this.strength = strength

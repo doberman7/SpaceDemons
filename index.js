@@ -1,5 +1,5 @@
-const p1 = new Nave1(10, 10, 0, 0)
-const invader = new Nave2(10, 10, 0, 0)
+const p1 = new Nave1(10, 10)
+const invader = new Nave2(10, 10)
 // const invader1 = new MotherShip(10,10,0,0)
 let board = new Board
 let intervalId
@@ -9,6 +9,7 @@ let score = 0
 let obstacles = []
 let positions =[]
 let positionsNave2 =[]
+let invadersNave2=[]
 
 
 window.onload = () => {
@@ -16,6 +17,10 @@ window.onload = () => {
 
   function update() {
     frames++
+    generateInvaders()
+    invadersNave2.forEach(element => {
+      element.moveInvader()
+    });
     // board.draw();
     // 1. Recalcular el estado del juego
     // 2. Limpiar el canvas
@@ -28,6 +33,8 @@ window.onload = () => {
     invader.draw()
     invader.moveInvader()
     invader.checkPosition()
+    drawInvaders()
+    console.log(invadersNave2)
     
     p1.draw()
     // p1.shadow()
