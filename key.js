@@ -1,5 +1,7 @@
 document.onkeydown = e => {
   switch (e.key) {
+    case " ":
+      return p1.shoot("SHOOT")
     case "ArrowUp":
       return p1.move("UP")
     case "ArrowDown":
@@ -8,8 +10,6 @@ document.onkeydown = e => {
       return p1.move("LEFT")
     case "ArrowRight":
       return p1.move("RIGHT")
-    case "Space":
-      return p1.shoot("SHOOT")
     default:
       break
   }

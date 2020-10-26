@@ -48,7 +48,7 @@ class MotherShip {
 
   checkPosition(){
     let postion=positionsNave2[positionsNave2.length-1]
-    console.log(postion)
+    //console.log(postion)
   }
 
   moveInvader(){
@@ -56,15 +56,15 @@ class MotherShip {
        let random=this.randomizer()
       switch (random) {
         case 1:
-          this.x-=10
-          this.y+=3
+          this.x-=15
+          this.y+=4
           break;
         case 2:
-          this.x+=10
+          this.x+=15
           this.y+=3
           break;
           case 3:
-            this.x+=20
+            this.x+=25
             this.y--
             break;
           case 4:
@@ -81,24 +81,24 @@ class MotherShip {
         let random=this.randomizer()
       switch (random) {
         case 1:
-          this.x-=10
-          this.y--
+          this.x-=15
+          this.y-=3
           break;
         case 2:
-          this.x+=10
-          this.y--
+          this.x+=15
+          this.y-=3
           break;
           case 3:
-            this.x+=10
-            this.y--
+            this.x+=15
+            this.y-=3
             break;
           case 4:
-            this.x-=10
-            this.y--
+            this.x-=15
+            this.y-=3
             break;
             case 5:
-              this.x+=10
-              this.y--
+              this.x+=15
+              this.y-=3
               break;
               default:
                    break;
@@ -136,13 +136,19 @@ class Nave1 extends MotherShip {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     positions.push([this.x, this.y])
   }
-  shoot(){
-    ctx.generateShoot(this.x, this.y)
+  shoot(shoot){
+    if(shoot=="SHOOT")
+    //switch(shoot){
+      //case "SHOOT":
+        console.log('pew pew')
+        //return ctx.rect(this.x,this.y,4,10)
+        //default:
+          //break;
+        //ctx.generateShoot(this.x, this.y)
+    //}
+    
+    
   }
-
-
-
-
 
   move(direction){
     switch (direction) {
@@ -168,8 +174,8 @@ class Nave1 extends MotherShip {
 class Nave2 extends MotherShip {
   constructor(health, strength, x, y) {
     super(health, strength)
-    this.health = health,
-    this.strength = strength
+    this.health = 5,
+    this.strength = 1
 
     this.x = $canvas.width*.4
     this.y = 0
@@ -177,6 +183,70 @@ class Nave2 extends MotherShip {
     // this.height = $canvas.height*.1
     this.img = new Image()
     this.img.src = './images/nave2.png'
+  }
+  // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
+  receiveDamage(damage) {
+    this.health = this.health - damage
+
+    if (this.health > 0) {
+      this.alive = true;
+    } else if (this.health === 0) {
+      this.alive = false;
+
+    }
+  }
+  draw() {
+
+    ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+    positionsNave2.push([this.x, this.y])
+
+  }
+}
+
+class Nave3 extends MotherShip {
+  constructor(health, strength, x, y) {
+    super(health, strength)
+    this.health = 10
+    this.strength = 2
+
+    this.x = $canvas.width*.4
+    this.y = 0
+    // this.width = $canvas.width*.25
+    // this.height = $canvas.height*.1
+    this.img = new Image()
+    this.img.src = './images/nave3.png'
+  }
+  // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
+  receiveDamage(damage) {
+    this.health = this.health - damage
+
+    if (this.health > 0) {
+      this.alive = true;
+    } else if (this.health === 0) {
+      this.alive = false;
+
+    }
+  }
+  draw() {
+
+    ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+    positionsNave2.push([this.x, this.y])
+
+  }
+}
+
+class Nave4 extends MotherShip {
+  constructor(health, strength, x, y) {
+    super(health, strength)
+    this.health = 10
+    this.strength = 3
+
+    this.x = $canvas.width*.4
+    this.y = 0
+    // this.width = $canvas.width*.25
+    // this.height = $canvas.height*.1
+    this.img = new Image()
+    this.img.src = './images/nave4.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {

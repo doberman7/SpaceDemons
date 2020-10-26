@@ -9,7 +9,7 @@ let score = 0
 let obstacles = []
 let positions =[]
 let positionsNave2 =[]
-let invadersNave2=[]
+let invaders=[]
 let shoots=[]
 
 
@@ -19,7 +19,7 @@ window.onload = () => {
   function update() {
     frames++
     generateInvaders()
-    invadersNave2.forEach(element => {
+    invaders.forEach(element => {
       element.moveInvader()
     });
     // board.draw();
@@ -35,9 +35,10 @@ window.onload = () => {
     invader.moveInvader()
     invader.checkPosition()
     drawInvaders()
-    console.log(invadersNave2)
     
+    p1.shoot()
     p1.draw()
+    
     // p1.shadow()
 
 
