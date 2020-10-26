@@ -13,9 +13,14 @@ function generateInvaders() {
 
   }
 
-//  function generateShoots(x,y){
-//      shoots.push(new shoot)
-//      function drawShoots(){
-//       drawShoots.forEach(obs=>obs.draw())   
+//   function generateShoots(){
+//       if(p1.shoot("SHOOT")){
+//       shoots.push(new Shots(p1.x,p1.y))
+//       }
 //     }
-//  }
+
+      
+//   function drawShoots(){
+//       if(p1.shoot("SHOOT"))
+//     shoots.forEach(obs=>obs.draw())   
+//   }

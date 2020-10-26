@@ -35,9 +35,13 @@ window.onload = () => {
     invader.moveInvader()
     invader.checkPosition()
     drawInvaders()
-    
-    p1.shoot()
     p1.draw()
+    //drawShoots()
+    shoots.forEach(element=>{
+      element.draw()
+      element.move()
+    })
+   
     
     // p1.shadow()
 

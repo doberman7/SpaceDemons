@@ -11,12 +11,8 @@ class Board {
     }
   }
   draw() {
-
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
-
-    // ctx.drawImage(this.img, this.x + $canvas.width, this.y, this.width, this.height)
   }
-
 }
 // Factory oof ships
 class MotherShip {
@@ -48,7 +44,6 @@ class MotherShip {
 
   checkPosition(){
     let postion=positionsNave2[positionsNave2.length-1]
-    //console.log(postion)
   }
 
   moveInvader(){
@@ -76,7 +71,7 @@ class MotherShip {
               this.y++
               break;
               default:
-                   break;
+                  break;
       }} else {
         let random=this.randomizer()
       switch (random) {
@@ -101,9 +96,9 @@ class MotherShip {
               this.y-=3
               break;
               default:
-                   break;
+            break;
       }
-     }}
+    }}
 }
 
 
@@ -113,23 +108,18 @@ class Nave1 extends MotherShip {
     super(health, strength)
     this.health = health,
     this.strength = strength
-
     this.x = $canvas.width*.4
     this.y = $canvas.height*.9
-    // this.width = $canvas.width*.25
-    // this.height = $canvas.height*.1
     this.img = new Image()
     this.img.src = './images/nave1.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
     this.health = this.health - damage
-
     if (this.health > 0) {
       this.alive = true;
     } else if (this.health === 0) {
       this.alive = false;
-
     }
   }
   draw() {
@@ -137,19 +127,13 @@ class Nave1 extends MotherShip {
     positions.push([this.x, this.y])
   }
   shoot(shoot){
-    if(shoot=="SHOOT")
-    //switch(shoot){
-      //case "SHOOT":
-        console.log('pew pew')
-        //return ctx.rect(this.x,this.y,4,10)
-        //default:
-          //break;
-        //ctx.generateShoot(this.x, this.y)
-    //}
-    
-    
+    if(shoot=="SHOOT"){
+      shoots.push(new Shots(this.x,this.y))
+      console.log('pew pew')
+      console.log(shoots)
+      
+    }
   }
-
   move(direction){
     switch (direction) {
       case "UP":
@@ -176,30 +160,23 @@ class Nave2 extends MotherShip {
     super(health, strength)
     this.health = 5,
     this.strength = 1
-
     this.x = $canvas.width*.4
     this.y = 0
-    // this.width = $canvas.width*.25
-    // this.height = $canvas.height*.1
     this.img = new Image()
     this.img.src = './images/nave2.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
     this.health = this.health - damage
-
     if (this.health > 0) {
       this.alive = true;
     } else if (this.health === 0) {
       this.alive = false;
-
     }
   }
   draw() {
-
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     positionsNave2.push([this.x, this.y])
-
   }
 }
 
@@ -208,30 +185,23 @@ class Nave3 extends MotherShip {
     super(health, strength)
     this.health = 10
     this.strength = 2
-
     this.x = $canvas.width*.4
     this.y = 0
-    // this.width = $canvas.width*.25
-    // this.height = $canvas.height*.1
     this.img = new Image()
     this.img.src = './images/nave3.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
     this.health = this.health - damage
-
     if (this.health > 0) {
       this.alive = true;
     } else if (this.health === 0) {
       this.alive = false;
-
     }
   }
   draw() {
-
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     positionsNave2.push([this.x, this.y])
-
   }
 }
 
@@ -240,29 +210,38 @@ class Nave4 extends MotherShip {
     super(health, strength)
     this.health = 10
     this.strength = 3
-
     this.x = $canvas.width*.4
     this.y = 0
-    // this.width = $canvas.width*.25
-    // this.height = $canvas.height*.1
     this.img = new Image()
     this.img.src = './images/nave4.png'
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
     this.health = this.health - damage
-
     if (this.health > 0) {
       this.alive = true;
     } else if (this.health === 0) {
       this.alive = false;
-
     }
   }
   draw() {
-
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     positionsNave2.push([this.x, this.y])
+  }
+}
 
+class Shots {
+  constructor(x,y){
+    this.x=x
+    this.y=y
+    this.img= new Image()
+    this.img.src='./images/nave5.png'
+  }
+  draw(){
+    ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+    //ctx.fillRect(this.x,this.y,10,10)
+  }
+  move(){
+    this.y--
   }
 }
