@@ -272,22 +272,41 @@ class Nave5 extends MotherShip {
   }
   draw() {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
-    positionsNave2.push([this.x, this.y])
+    positionsNave5.push([this.x, this.y])
   }
 
+
+  checkPosition() {
+    let position = positionsNave5[positionsNave5.length - 1]
+    console.log(position);
+    return position;
+  }
+
+
   moveInvader() {
-    let x = this.randomizer();
-    let y = this.checkPosition();
+    // let rand = this.randomizer();
+    // let positions = this.checkPosition();
+    // console.log(this.x, this.y);
 
-    switch (y) {
-      case expression:
 
-        break;
-      default:
+
+
+    if (this.x > 0 && this.x < $canvas.width ) {
+
+      this.x--
+      this.y++
+    } else if (this.y < $canvas.width && this.y > 0) {
+      //normal speed
+      this.y++
+      //faster
+      // console.log(p1.x % 2 == 0);
+      if (p1.x % 2 == 0)this.y+=7
 
     }
 
-    console.log(x);
+
+
+
 
   }
 }
