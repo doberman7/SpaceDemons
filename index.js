@@ -24,7 +24,8 @@ window.onload = () => {
     generateInvaders()
     invaders.forEach(element => {
       element.moveInvader()
-      console.log(invaders)
+      p1.isTouching(element)
+      // console.log(invaders)
     });
     // board.draw();
     // 1. Recalcular el estado del juego
@@ -35,9 +36,9 @@ window.onload = () => {
     // checkCollitions()
     // 3. Pintar los elementos del juego
     board.draw()
-    invader.draw()
-    invader.moveInvader()
-    invader.checkPosition()
+    // invader.draw()
+    // invader.moveInvader()
+    // invader.checkPosition()
     drawInvaders()
     p1.draw()
     //drawShoots()
@@ -45,7 +46,7 @@ window.onload = () => {
       element.draw()
       element.move()
     })
-    
+
     // p1.shadow()
 
 

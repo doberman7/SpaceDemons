@@ -17,12 +17,12 @@ class Board {
 // Factory oof ships
 class MotherShip {
   constructor(health, strength, x, y) {
-      this.health = health,
+    this.health = health,
       this.strength = strength,
       this.x = x,
       this.y = y
-      this.width = $canvas.width*.25
-      this.height = $canvas.height*.1
+    this.width = $canvas.width * .25
+    this.height = $canvas.height * .1
     this.img = new Image()
     this.img.src = "./images/nave1.png"
     this.vel = 10
@@ -35,70 +35,72 @@ class MotherShip {
     return
   }
 
-  randomizer(){
+  randomizer() {
     const min = 1
     const max = 5
     const random = Math.floor(Math.random() * (max - min) + min)
     return random
   }
 
-  checkPosition(){
-    let postion=positionsNave2[positionsNave2.length-1]
+  checkPosition() {
+    let postion = positionsNave2[positionsNave2.length - 1]
   }
 
-  moveInvader(){
-     if(this.y<400 && this.x>0 && this.x<$canvas.width){
-       let random=this.randomizer()
+  moveInvader() {
+    if (this.y < 400 && this.x > 0 && this.x < $canvas.width) {
+      let random = this.randomizer()
       switch (random) {
         case 1:
-          this.x-=15
-          this.y+=4
+          this.x -= 15
+          this.y += 4
           break;
         case 2:
-          this.x+=15
-          this.y+=3
+          this.x += 15
+          this.y += 3
           break;
-          case 3:
-            this.x+=25
-            this.y--
-            break;
-          case 4:
-            this.x-=20
-            this.y--
-            break;
-            case 5:
-              this.x+=5
-              this.y++
-              break;
-              default:
-                  break;
-      }} else {
-        let random=this.randomizer()
-      switch (random) {
-        case 1:
-          this.x-=15
-          this.y-=3
+        case 3:
+          this.x += 25
+          this.y--
           break;
-        case 2:
-          this.x+=15
-          this.y-=3
+        case 4:
+          this.x -= 20
+          this.y--
           break;
-          case 3:
-            this.x+=15
-            this.y-=3
-            break;
-          case 4:
-            this.x-=15
-            this.y-=3
-            break;
-            case 5:
-              this.x+=15
-              this.y-=3
-              break;
-              default:
-            break;
+        case 5:
+          this.x += 5
+          this.y++
+          break;
+        default:
+          break;
       }
-    }}
+    } else {
+      let random = this.randomizer()
+      switch (random) {
+        case 1:
+          this.x -= 15
+          this.y -= 3
+          break;
+        case 2:
+          this.x += 15
+          this.y -= 3
+          break;
+        case 3:
+          this.x += 15
+          this.y -= 3
+          break;
+        case 4:
+          this.x -= 15
+          this.y -= 3
+          break;
+        case 5:
+          this.x += 15
+          this.y -= 3
+          break;
+        default:
+          break;
+      }
+    }
+  }
 }
 
 
@@ -107,9 +109,9 @@ class Nave1 extends MotherShip {
   constructor(health, strength) {
     super(health, strength)
     this.health = health,
-    this.strength = strength
-    this.x = $canvas.width*.4
-    this.y = $canvas.height*.9
+      this.strength = strength
+    this.x = $canvas.width * .4
+    this.y = $canvas.height * .9
     this.img = new Image()
     this.img.src = './images/nave1.png'
   }
@@ -126,31 +128,45 @@ class Nave1 extends MotherShip {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     positions.push([this.x, this.y])
   }
-  shoot(shoot){
-    if(shoot=="SHOOT"){
-      shoots.push(new Shots(this.x,this.y))
-      console.log('pew pew')
-      console.log(shoots)
-      
+  shoot(shoot) {
+    if (shoot == "SHOOT") {
+      shoots.push(new Shots(this.x, this.y))
+      // console.log('pew pew')
+      // console.log(shoots)
+
     }
   }
-  move(direction){
+  move(direction) {
     switch (direction) {
       case "UP":
         if (this.y <= 0) return
-        return (this.y -= this.vel+30)
+        return (this.y -= this.vel + 30)
       case "DOWN":
         if (this.y >= $canvas.height - this.height) return
-        return (this.y += this.vel+30)
+        return (this.y += this.vel + 30)
       case "LEFT":
         if (this.x < 0) return
-        return (this.x -= this.vel+30)
+        return (this.x -= this.vel + 30)
       case "RIGHT":
         if (this.x >= $canvas.width - this.width) return
-        return (this.x += this.vel+30)
+        return (this.x += this.vel + 30)
       default:
         throw new Error("Invalid direction")
     }
+  }
+  isTouching(invader) {
+    console.log(this.x, invader.x, this.y, invader.y, )
+    if (
+      // this.x + this.width == invader.x + invader.width &&
+
+      this.y + this.width == invader.y + invader.width
+
+
+
+    ) {
+      alert()
+    }
+
   }
 }
 
@@ -159,8 +175,8 @@ class Nave2 extends MotherShip {
   constructor(health, strength, x, y) {
     super(health, strength)
     this.health = 5,
-    this.strength = 1
-    this.x = $canvas.width*.4
+      this.strength = 1
+    this.x = $canvas.width * .4
     this.y = 0
     this.img = new Image()
     this.img.src = './images/nave2.png'
@@ -185,7 +201,7 @@ class Nave3 extends MotherShip {
     super(health, strength)
     this.health = 10
     this.strength = 2
-    this.x = $canvas.width*.4
+    this.x = $canvas.width * .4
     this.y = 0
     this.img = new Image()
     this.img.src = './images/nave3.png'
@@ -210,7 +226,7 @@ class Nave4 extends MotherShip {
     super(health, strength)
     this.health = 10
     this.strength = 3
-    this.x = $canvas.width*.4
+    this.x = $canvas.width * .4
     this.y = 0
     this.img = new Image()
     this.img.src = './images/nave4.png'
@@ -269,7 +285,7 @@ class Nave5 extends MotherShip {
 
 
 
-    if (this.x > 0 && this.x < $canvas.width ) {
+    if (this.x > 0 && this.x < $canvas.width) {
 
       this.x--
       this.y++
@@ -278,7 +294,7 @@ class Nave5 extends MotherShip {
       this.y++
       //faster
       // console.log(p1.x % 2 == 0);
-      if (p1.x % 2 == 0)this.y+=7
+      if (p1.x % 2 == 0) this.y += 7
 
     }
 
@@ -321,18 +337,18 @@ class Nave6 extends MotherShip {
 
 
   moveInvader() {
-    if ( this.x < $canvas.width - this.width) {
+    if (this.x < $canvas.width - this.width) {
 
       this.x++
       this.y++
-    } else  {
+    } else {
 
       //normal speed
       // this.y++
       this.x--
       //faster
       // console.log(p1.x % 2 == 0);
-      if (p1.x % 3 == 0)this.y+=4
+      if (p1.x % 3 == 0) this.y += 4
 
     }
 
@@ -346,19 +362,19 @@ class Nave6 extends MotherShip {
 
 
 class Shots {
-  constructor(x,y){
-    this.x=x
-    this.y=y
-    this.width=50
-    this.height=50
-    this.img= new Image()
-    this.img.src='./images/nave5.png'
+  constructor(x, y) {
+    this.x = x
+    this.y = y
+    this.width = 50
+    this.height = 50
+    this.img = new Image()
+    this.img.src = './images/nave5.png'
   }
-  draw(){
+  draw() {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     //ctx.fillRect(this.x,this.y,10,10)
   }
-  move(){
-    this.y-=50
+  move() {
+    this.y -= 50
   }
 }
