@@ -1,17 +1,21 @@
 function generateInvaders() {
-    if (frames % 300 === 0) {
-      invaders.push(new Nave2($canvas.width*0.4,0))
-    } else if(frames % 400 === 0){
-        invaders.push(new Nave3($canvas.width*0.4,0))
-    } else if(frames % 500 ===0){
-        invaders.push(new Nave4($canvas.width*0.4,0))
-    }
+  if (frames % 300 === 0) {
+    invaders.push(new Nave2($canvas.width * 0.4, 0))
+  } else if (frames % 400 === 0) {
+    invaders.push(new Nave3($canvas.width * 0.4, 0))
+  } else if (frames % 500 === 0) {
+    invaders.push(new Nave4($canvas.width * 0.4, 0))
+  } else if (frames % 200 === 0) {
+    invaders.push(new Nave5($canvas.width * 0.4, 0))
   }
+  // invaders.push(new Nave5($canvas.width * 0.4, 0))
 
-  function drawInvaders() {
-    invaders.forEach(obs => obs.draw())
+}
 
-  }
+function drawInvaders() {
+  invaders.forEach(obs => obs.draw())
+
+}
 
 //   function generateShoots(){
 //       if(p1.shoot("SHOOT")){
@@ -19,8 +23,8 @@ function generateInvaders() {
 //       }
 //     }
 
-      
+
 //   function drawShoots(){
 //       if(p1.shoot("SHOOT"))
-//     shoots.forEach(obs=>obs.draw())   
+//     shoots.forEach(obs=>obs.draw())
 //   }
