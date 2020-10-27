@@ -354,7 +354,7 @@ class Nave6 extends MotherShip {
       this.x--
       //faster
       // console.log(p1.x % 2 == 0);
-      // if (p1.x % 3 == 0)this.y+=4
+      if (p1.x % 3 == 0)this.y+=4
 
     }
 
