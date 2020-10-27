@@ -11,6 +11,7 @@ let obstacles = []
 let positions =[]
 let positionsNave2 =[]
 let positionsNave5 =[]
+let positionsNave6 =[]
 let invaders=[]
 let shoots=[]
 
@@ -23,6 +24,7 @@ window.onload = () => {
     generateInvaders()
     invaders.forEach(element => {
       element.moveInvader()
+      console.log(invaders)
     });
     // board.draw();
     // 1. Recalcular el estado del juego

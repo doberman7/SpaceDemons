@@ -4,6 +4,7 @@ function generateInvaders() {
       invaders.push(new Nave2($canvas.width*0.4,0))
     } else if(frames % 400 === 0){
         invaders.push(new Nave3($canvas.width*0.4,0))
+        invaders.push(new Nave6($canvas.width * 0.4, 0))
     } else if(frames % 500 ===0){
         invaders.push(new Nave4($canvas.width*0.4,0))
     }
