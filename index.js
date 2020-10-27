@@ -24,7 +24,7 @@ window.onload = () => {
     generateInvaders()
     invaders.forEach(element => {
       element.moveInvader()
-      p1.isTouching(element)
+      // p1.isTouching(element)
       // console.log(invaders)
     });
     // board.draw();

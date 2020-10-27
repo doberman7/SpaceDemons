@@ -368,7 +368,7 @@ class Shots {
     this.width = 50
     this.height = 50
     this.img = new Image()
-    this.img.src = './images/nave5.png'
+    this.img.src = './images/bullet.png'
   }
   draw() {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
