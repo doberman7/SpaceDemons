@@ -131,7 +131,7 @@ class Nave1 extends MotherShip {
       shoots.push(new Shots(this.x,this.y))
       console.log('pew pew')
       console.log(shoots)
-      
+
     }
   }
   move(direction){
@@ -243,5 +243,33 @@ class Shots {
   }
   move(){
     this.y--
+  }
+}
+
+
+
+
+class Nave5 extends MotherShip {
+  constructor(health, strength, x, y) {
+    super(health, strength)
+    this.health = 5,
+    this.strength = 1
+    this.x = $canvas.width*.4
+    this.y = 0
+    this.img = new Image()
+    this.img.src = './images/nave5.png'
+  }
+  // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
+  receiveDamage(damage) {
+    this.health = this.health - damage
+    if (this.health > 0) {
+      this.alive = true;
+    } else if (this.health === 0) {
+      this.alive = false;
+    }
+  }
+  draw() {
+    ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+    positionsNave2.push([this.x, this.y])
   }
 }
