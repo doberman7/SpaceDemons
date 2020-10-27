@@ -5,13 +5,16 @@ class Board {
     this.width = $canvas.width
     this.height = $canvas.height
     this.img = new Image()
-    this.img.src = './images/fondo.jpg'
+    this.img.src = './images/meteors.png'
     this.img.onload = () => {
       this.draw()
     }
   }
   draw() {
-    ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+    if( -this.y < -$canvas.height) this.y = 0
+     this.y++
+     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+     ctx.drawImage(this.img, this.x, this.y - $canvas.height, this.width, this.height)
   }
 }
 // Factory oof ships
@@ -167,7 +170,7 @@ class Nave1 extends MotherShip {
 
 
     ) {
-      alert()
+
     }
 
   }
