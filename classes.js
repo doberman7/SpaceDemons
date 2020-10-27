@@ -130,7 +130,10 @@ class Nave1 extends MotherShip {
   }
   shoot(shoot) {
     if (shoot == "SHOOT") {
-      shoots.push(new Shots(this.x, this.y))
+      shoots.push(new Shots(this.x+(this.width*0.5 ), this.y))
+
+
+
       // console.log('pew pew')
       // console.log(shoots)
 
@@ -174,8 +177,8 @@ class Nave1 extends MotherShip {
 class Nave2 extends MotherShip {
   constructor(health, strength, x, y) {
     super(health, strength)
-    this.health = 5,
-      this.strength = 1
+    this.health = 5
+    this.strength = 1
     this.x = $canvas.width * .4
     this.y = 0
     this.img = new Image()
@@ -197,7 +200,7 @@ class Nave2 extends MotherShip {
 }
 
 class Nave3 extends MotherShip {
-  constructor(health, strength, x, y) {
+  constructor(health, strength) {
     super(health, strength)
     this.health = 10
     this.strength = 2
@@ -246,7 +249,7 @@ class Nave4 extends MotherShip {
   }
 }
 class Nave5 extends MotherShip {
-  constructor(health, strength, x, y) {
+  constructor(health, strength) {
     super(health, strength)
     this.health = 5,
       this.strength = 1
@@ -305,7 +308,7 @@ class Nave5 extends MotherShip {
   }
 }
 class Nave6 extends MotherShip {
-  constructor(health, strength, x, y) {
+  constructor(health, strength) {
     super(health, strength)
     this.health = 5,
       this.strength = 1
@@ -365,8 +368,8 @@ class Shots {
   constructor(x, y) {
     this.x = x
     this.y = y
-    this.width = 50
-    this.height = 50
+    this.width = 8
+    this.height = 15
     this.img = new Image()
     this.img.src = './images/bullet.png'
   }
@@ -375,6 +378,6 @@ class Shots {
     //ctx.fillRect(this.x,this.y,10,10)
   }
   move() {
-    this.y -= 50
+    this.y -= 10
   }
 }
