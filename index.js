@@ -11,6 +11,7 @@ let obstacles = []
 let positions =[]
 let positionsNave2 =[]
 let positionsNave5 =[]
+let positionsNave6 =[]
 let invaders=[]
 let shoots=[]
 
