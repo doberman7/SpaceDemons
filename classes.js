@@ -253,8 +253,8 @@ class Nave5 extends MotherShip {
   constructor(health, strength, x, y) {
     super(health, strength)
     this.health = 5,
-    this.strength = 1
-    this.x = $canvas.width*.4
+      this.strength = 1
+    this.x = $canvas.width * .4
     this.y = 0
     this.img = new Image()
     this.img.src = './images/nave5.png'
@@ -271,5 +271,12 @@ class Nave5 extends MotherShip {
   draw() {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     positionsNave2.push([this.x, this.y])
+  }
+
+  moveSmmoth() {
+    let x = this.randomizer();
+    let y = this.checkPosition();
+    console.log(x);
+    console.log(y);
   }
 }
