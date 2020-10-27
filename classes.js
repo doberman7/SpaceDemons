@@ -117,6 +117,7 @@ class Nave1 extends MotherShip {
     this.y = $canvas.height * .9
     this.img = new Image()
     this.img.src = './images/nave1.png'
+    this.grounded = false
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
@@ -161,7 +162,6 @@ class Nave1 extends MotherShip {
     }
   }
   isTouching(invader) {
-    console.log(this.x, invader.x, this.y, invader.y, )
     if (
       // this.x + this.width == invader.x + invader.width &&
 

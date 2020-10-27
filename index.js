@@ -8,12 +8,12 @@ let frames = 0
 let ratio = 200
 let score = 0
 let obstacles = []
-let positions =[]
-let positionsNave2 =[]
-let positionsNave5 =[]
-let positionsNave6 =[]
-let invaders=[]
-let shoots=[]
+let positions = []
+let positionsNave2 = []
+let positionsNave5 = []
+let positionsNave6 = []
+let invaders = []
+let shoots = []
 
 
 window.onload = () => {
@@ -27,27 +27,19 @@ window.onload = () => {
       p1.isTouching(element)
       // console.log(invaders)
     });
-    // board.draw();
-    // 1. Recalcular el estado del juego
-    // 2. Limpiar el canvas
-    // clearObstacles()
-    // generateObstacles()
     clearCanvas()
-    // checkCollitions()
-    // 3. Pintar los elementos del juego
     board.draw()
     // invader.draw()
     // invader.moveInvader()
     // invader.checkPosition()
     drawInvaders()
     p1.draw()
-    //drawShoots()
-    shoots.forEach(element=>{
+    shoots.forEach(element => {
       element.draw()
       element.move()
     })
 
-    // p1.shadow()
+    bounds()
 
 
 
