@@ -161,19 +161,8 @@ class Nave1 extends MotherShip {
         throw new Error("Invalid direction")
     }
   }
-  isTouching(invader) {
-    if (
-      // this.x + this.width == invader.x + invader.width &&
-
-      this.y + this.width == invader.y + invader.width
 
 
-
-    ) {
-
-    }
-
-  }
 }
 
 
