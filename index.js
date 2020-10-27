@@ -1,6 +1,5 @@
 const p1 = new Nave1(10, 10)
 const invader = new Nave2(10, 10)
-const invader5 = new Nave5
 // const invader1 = new MotherShip(10,10,0,0)
 let board = new Board
 let intervalId
@@ -10,7 +9,6 @@ let score = 0
 let obstacles = []
 let positions =[]
 let positionsNave2 =[]
-let positionsNave5 =[]
 let positionsNave6 =[]
 let invaders=[]
 let shoots=[]

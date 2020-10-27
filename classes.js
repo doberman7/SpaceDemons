@@ -251,65 +251,7 @@ class Shots {
 
 
 
-class Nave5 extends MotherShip {
-  constructor(health, strength, x, y) {
-    super(health, strength)
-    this.health = 5,
-      this.strength = 1
-    this.x = $canvas.width * .4
-    this.y = 0
-    this.img = new Image()
-    this.img.src = './images/nave5.png'
-  }
-  // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
-  receiveDamage(damage) {
-    this.health = this.health - damage
-    if (this.health > 0) {
-      this.alive = true;
-    } else if (this.health === 0) {
-      this.alive = false;
-    }
-  }
-  draw() {
-    ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
-    positionsNave5.push([this.x, this.y])
-  }
 
-
-  checkPosition() {
-    let position = positionsNave5[positionsNave5.length - 1]
-    console.log(position);
-    return position;
-  }
-
-
-  moveInvader() {
-    // let rand = this.randomizer();
-    // let positions = this.checkPosition();
-    // console.log(this.x, this.y);
-
-
-
-
-    if (this.x > 0 && this.x < $canvas.width ) {
-
-      this.x--
-      this.y++
-    } else if (this.y < $canvas.width && this.y > 0) {
-      //normal speed
-      this.y++
-      //faster
-      // console.log(p1.x % 2 == 0);
-      if (p1.x % 2 == 0)this.y+=7
-
-    }
-
-
-
-
-
-  }
-}
 class Nave6 extends MotherShip {
   constructor(health, strength, x, y) {
     super(health, strength)
