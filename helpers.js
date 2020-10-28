@@ -54,7 +54,7 @@ function bounds() {
           score++
         removeInvader(invader)
         ctx.fillText(`Score: ${score}`, 200, 30)
-  
+
       } else if (direction == "bottom") {
         invader.touched = true
         console.log("abajo")
@@ -63,7 +63,7 @@ function bounds() {
           score++
         removeInvader(invader)
         ctx.fillText(`Score: ${score}`, 200, 30)
-  
+
       } else if (direction == "top") {
         invader.touched = true
         console.log("arriba")
@@ -72,7 +72,7 @@ function bounds() {
           score++
         removeInvader(invader)
         ctx.fillText(`Score: ${score}`, 200, 30)
-  
+
       }
     })
 
@@ -81,14 +81,19 @@ function bounds() {
 
   if (p1.touched) {
     // alert("You die your score was X ")
-    ctx.fillStyle = "white"
-    ctx.font = "100px Arial"
-    ctx.fillText("Game Over", 140, $canvas.height / 2)
-    setInterval(function(){ location.reload(); }, 4000);
-    ;
+    gameover()
   }
 
 }
+//gameover
+function gameover(){
+  ctx.fillStyle = "white"
+  ctx.font = "100px Arial"
+  ctx.fillText("Game Over", 140, $canvas.height / 2)
+  setInterval(function(){ location.reload(); }, 4000);
+  ;
+}
+
 // Colision para invaderaformas
 function collisionCheck(p1, invader) {
   let vectorX = p1.x + p1.width / 2 - (invader.x + invader.width / 2)
@@ -167,7 +172,7 @@ function printScore() {
 
 // funcion para eliminar invader
 function removeInvader(invader){
-  
+
   const index=invaders.indexOf(invader)
   invaders.splice(index,1)
   console.log(invader)
