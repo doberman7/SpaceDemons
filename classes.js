@@ -24,8 +24,8 @@ class MotherShip {
       this.strength = strength,
       this.x = x,
       this.y = y
-    this.width = $canvas.width * .25
-    this.height = $canvas.height * .1
+    this.width = 100
+    this.height = 60
     this.img = new Image()
     this.img.src = "./images/nave1.png"
     this.vel = 10
