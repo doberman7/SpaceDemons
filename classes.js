@@ -50,7 +50,7 @@ class MotherShip {
   }
   shoot() {
     if (frames%50===0) {
-      shoots.push(new InvadersShots(this.x+(this.width*0.5 ), this.y))
+      invadersShots.push(new InvadersShots(this.x+(this.width*0.5 ), this.y))
     }
   }
 

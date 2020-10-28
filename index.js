@@ -26,6 +26,7 @@ window.onload = () => {
     invaders.forEach(element => {
       element.moveInvader()
       element.shoot()
+      console.log(invadersShots)
       // console.log(invaders)
     });
     clearCanvas()
@@ -36,6 +37,10 @@ window.onload = () => {
     drawInvaders()
     p1.draw()
     shoots.forEach(element => {
+      element.draw()
+      element.move()
+    })
+    invadersShots.forEach(element=>{
       element.draw()
       element.move()
     })
