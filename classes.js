@@ -49,7 +49,7 @@ class MotherShip {
     let postion = positionsNave2[positionsNave2.length - 1]
   }
   shoot() {
-    if (frames%50===0) {
+    if (frames%1000===0) {
       invadersShots.push(new InvadersShots(this.x+(this.width*0.5 ), this.y))
     }
   }

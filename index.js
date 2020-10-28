@@ -44,12 +44,7 @@ window.onload = () => {
       element.draw()
       element.move()
     })
-
     bounds()
-
-
-
-
     // drawObstacles()
     // printScore()
   }

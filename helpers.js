@@ -43,6 +43,37 @@ function bounds() {
 
     }
   })
+  shoots.forEach(shot=>{
+    invaders.forEach(invader=>{
+      var direction = shotCheck(invader, shot)
+      if (direction == "left" || direction == "right") {
+        invader.touched = true
+        console.log("al lado")
+        ctx.fillStyle = "white"
+        ctx.font = "30px arial" //condicion para aumentar el score
+          score++
+        ctx.fillText(`Score: ${score}`, 200, 30)
+  
+      } else if (direction == "bottom") {
+        invader.touched = true
+        console.log("abajo")
+        ctx.fillStyle = "white"
+        ctx.font = "30px arial" //condicion para aumentar el score
+          score++
+        ctx.fillText(`Score: ${score}`, 200, 30)
+  
+      } else if (direction == "top") {
+        invader.touched = true
+        console.log("arriba")
+        ctx.fillStyle = "white"
+        ctx.font = "30px arial" //condicion para aumentar el score
+          score++
+        ctx.fillText(`Score: ${score}`, 200, 30)
+  
+      }
+    })
+
+  })
 
 
   if (p1.touched) {
@@ -121,4 +152,12 @@ function shotCheck(p1, invaderShot) {
     }
   }
   return collisionDirection
+}
+
+
+function printScore() {
+  ctx.fillStyle = "white"
+  ctx.font = "30px arial" //condicion para aumentar el score
+    score++
+  ctx.fillText(`Score: ${score}`, 200, 30)
 }
