@@ -24,7 +24,6 @@ window.onload = () => {
     generateInvaders()
     invaders.forEach(element => {
       element.moveInvader()
-      p1.isTouching(element)
       // console.log(invaders)
     });
     clearCanvas()

@@ -16,7 +16,7 @@ function generateInvaders() {
   }
 
   function bounds() {
-    p1.grounded = false
+    p1.touched = false
     invaders.forEach(invadr => {
       var direction = collisionCheck(p1, invadr)
       if (direction == "left" || direction == "right") {
@@ -25,14 +25,14 @@ function generateInvaders() {
       } else if (direction == "bottom") {
         // p1.jumping = false
         console.log("toque sup")
-        p1.grounded = true
+        p1.touched = true
       } else if (direction == "top") {
         console.log("toque inf" )
         p1.velY *= -1
       }
     })
 
-    if (p1.grounded) {
+    if (p1.touched) {
       p1.velY = 0
     }
   }
