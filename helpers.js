@@ -31,7 +31,7 @@ function bounds() {
     }
   })
 
-  invadersShots.forEach(invShot=>{
+  invadersShots.forEach(invShot => {
     var direction = shotCheck(p1, invShot)
     if (direction == "left" || direction == "right") {
       p1.touched = true
@@ -45,23 +45,17 @@ function bounds() {
     }
   })
 
-  shoots.forEach(bullet=>{
+  shoots.forEach(bullet => {
     invaders.forEach(invadr => {
+      invadr.touched = false
+      let bulletTouchinvdrAt = collisionInvCheck(invadr, bullet)
+      if (bulletTouchinvdrAt == "left" || bulletTouchinvdrAt == "right") {
 
-      let invdrDirOfBulletTouch = collisionInvCheck(invadr,bullet)
-      // var direction = shotCheck(p1, invShot)
-      if (invdrDirOfBulletTouch == "left" || invdrDirOfBulletTouch == "right") {
+      } else if (bulletTouchinvdrAt == "bottom") {
         invadr.touched = true
         score += 1
-        alert(score)
-
-      } else if (invdrDirOfBulletTouch == "bottom") {
-        // invadr.touched = true
-
-      } else if (invdrDirOfBulletTouch == "top") {
-        invadr.touched = true
-        score += 1
-        alert(score)
+        ctx.fillText(`Score: ${score}`, 50, 110)
+      } else if (bulletTouchinvdrAt == "top") {
 
 
       }
@@ -75,14 +69,19 @@ function bounds() {
 
   if (p1.touched) {
     // alert("You die your score was X ")
-    ctx.fillStyle = "white"
-    ctx.font = "100px Arial"
-    ctx.fillText("Game Over", 140, $canvas.height / 2)
-    setInterval(function(){ location.reload(); }, 4000);
-    ;
+    gameOver()
   }
 
 }
+function gameOver(){
+  ctx.fillStyle = "white"
+  ctx.font = "100px Arial"
+  ctx.fillText("Game Over", 140, $canvas.height / 2)
+  setInterval(function() {
+    location.reload();
+  }, 4000);;
+}
+
 // Colision para invaderaformas
 function collisionCheck(p1, invader) {
   var vectorX = p1.x + p1.width / 2 - (invader.x + invader.width / 2)
