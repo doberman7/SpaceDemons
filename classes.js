@@ -48,6 +48,11 @@ class MotherShip {
   checkPosition() {
     let postion = positionsNave2[positionsNave2.length - 1]
   }
+  shoot() {
+    if (frames%50===0) {
+      shoots.push(new InvadersShots(this.x+(this.width*0.5 ), this.y))
+    }
+  }
 
   moveInvader() {
     if (this.y < 400 && this.x > 0 && this.x < $canvas.width) {
@@ -366,4 +371,24 @@ class Shots {
   move() {
     this.y -= 10
   }
+}
+
+
+class InvadersShots{
+  constructor(x, y) {
+    this.x = x
+    this.y = y
+    this.width = 8
+    this.height = 15
+    this.img = new Image()
+    this.img.src = './images/lasers.png'
+  }
+  draw() {
+    ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+    //ctx.fillRect(this.x,this.y,10,10)
+  }
+  move() {
+    this.y += 10
+  }
+
 }

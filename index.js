@@ -14,6 +14,7 @@ let positionsNave5 = []
 let positionsNave6 = []
 let invaders = []
 let shoots = []
+let invadersShots=[]
 
 
 window.onload = () => {
@@ -24,6 +25,7 @@ window.onload = () => {
     generateInvaders()
     invaders.forEach(element => {
       element.moveInvader()
+      element.shoot()
       // console.log(invaders)
     });
     clearCanvas()
