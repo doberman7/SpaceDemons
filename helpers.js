@@ -52,9 +52,7 @@ function bounds() {
       if (bulletTouchinvdrAt == "left" || bulletTouchinvdrAt == "right") {
 
       } else if (bulletTouchinvdrAt == "bottom") {
-        invadr.touched = true
-        score += 1
-        ctx.fillText(`Score: ${score}`, 50, 110)
+        scored(invadr)
       } else if (bulletTouchinvdrAt == "top") {
 
 
@@ -63,16 +61,19 @@ function bounds() {
     })
   })
 
-
-
-
-
   if (p1.touched) {
-    // alert("You die your score was X ")
     gameOver()
   }
 
 }
+
+function scored(invadr) {
+  invadr.touched = true
+  score += 1
+  ctx.fillText(`Score: ${score}`, 50, 110)
+}
+
+
 function gameOver(){
   ctx.fillStyle = "white"
   ctx.font = "100px Arial"
