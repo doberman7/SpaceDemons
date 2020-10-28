@@ -12,16 +12,6 @@ function generateInvaders() {
 
 function drawInvaders() {
   invaders.forEach(obs => obs.draw())
-
-}
-
-function gameOver() {
-  // clearCanvas()
-  // clearInterval(intervalId)
-  // intervalId = null
-  ctx.fillStyle = "white"
-  ctx.font = "140px Arial"
-  return ctx.fillText("Game Over", 140, $canvas.height / 2)
 }
 
 function bounds() {
@@ -44,7 +34,7 @@ function bounds() {
   if (p1.touched) {
     // alert("You die your score was X ")
     ctx.fillStyle = "white"
-    ctx.font = "140px Arial"
+    ctx.font = "100px Arial"
     ctx.fillText("Game Over", 140, $canvas.height / 2)
     setInterval(function(){ location.reload(); }, 4000);
     ;
