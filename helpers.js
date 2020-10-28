@@ -8,6 +8,15 @@ function generateInvaders() {
   } else if (frames % 500 === 0) {
     invaders.push(new Nave4($canvas.width * 0.4, 0))
   }
+  //si mueres animacion de morir
+  if (p1.isAlive ===false) {
+    // invaders.push(new Nave1($canvas.width * 0.4, 0))
+  }
+  //boss
+  if (score > 3 && score < 10 ) {
+    invaders.push(new Nave4($canvas.width * 0.4, 0))
+
+  }
 }
 
 function drawInvaders() {

@@ -153,10 +153,10 @@ class Nave1 extends MotherShip {
         return (this.y += this.vel + 30)
       case "LEFT":
         if (this.x < 0) return
-        return (this.x -= this.vel + 30)
+        return (this.x -= this.vel + 100)
       case "RIGHT":
         if (this.x >= $canvas.width - this.width) return
-        return (this.x += this.vel + 30)
+        return (this.x += this.vel + 100)
       default:
         throw new Error("Invalid direction")
     }
