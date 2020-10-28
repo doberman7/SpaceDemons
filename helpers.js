@@ -93,7 +93,7 @@ function gameover(){
   ctx.fillText("Game Over ", 140, $canvas.height / 2)
   //ultiimo mensaje con puntaje
   ctx.font = "20px Arial"
-  ctx.fillText(`Lo mejor que pudiste fue: ${score} space demons`, 50, $canvas.height-40)
+  ctx.fillText(`Lo mejor que pudiste fue: ${score} space demon down`, 50, $canvas.height-40)
   //mensaje de reinicio en rojo
   ctx.fillStyle = "white"
   ctx.fillText("Reiniciando juego", 50, $canvas.height-10)
