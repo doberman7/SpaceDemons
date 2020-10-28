@@ -15,7 +15,7 @@ function drawInvaders() {
 }
 
 function bounds() {
-  // p1.touched = false
+  p1.touched = false
   invaders.forEach(invadr => {
     let direction = collisionCheck(p1, invadr)
 
@@ -32,6 +32,7 @@ function bounds() {
   })
 
   invadersShots.forEach(invShot => {
+    p1.touched = false
     let direction = shotCheck(p1, invShot)
     if (direction == "left" || direction == "right") {
       p1.touched = true
@@ -45,6 +46,15 @@ function bounds() {
     }
   })
 
+  compareP1bulletsVSinvaders()
+
+  if (p1.touched) {
+    gameOver()
+  }
+
+}
+
+function compareP1bulletsVSinvaders() {
   shoots.forEach(bullet => {
     invaders.forEach(invadr => {
       invadr.touched = false
@@ -60,11 +70,6 @@ function bounds() {
 
     })
   })
-
-  if (p1.touched) {
-    gameOver()
-  }
-
 }
 
 function scored(invadr) {
@@ -168,17 +173,24 @@ function collisionInvCheck(invadr, bullet) {
       if (vectorX > 0) {
         collisionDirection = "left"
         invadr.x += offsetX
+        alert(collisionDirection)
       } else {
         collisionDirection = "right"
         invadr.x -= offsetX
+        alert(collisionDirection)
+
       }
     } else {
       if (vectorY > 0) {
         collisionDirection = "top"
         invadr.y += offsetY
+        alert(collisionDirection)
+
       } else {
         collisionDirection = "bottom"
         invadr.y -= offsetY
+        alert(collisionDirection)
+
       }
     }
   }
