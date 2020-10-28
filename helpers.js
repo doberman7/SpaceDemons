@@ -20,21 +20,23 @@ function generateInvaders() {
     invaders.forEach(invadr => {
       var direction = collisionCheck(p1, invadr)
       if (direction == "left" || direction == "right") {
-        console.log("toque lateral")
-        // p1.velX = 0
-      } else if (direction == "bottom") {
-        // p1.jumping = false
-        console.log("toque sup")
         p1.touched = true
+
+      } else if (direction == "bottom") {
+        p1.touched = true
+
       } else if (direction == "top") {
-        console.log("toque inf" )
-        p1.velY *= -1
+        p1.touched = true
+
       }
     })
 
+
     if (p1.touched) {
-      p1.velY = 0
+      // alert("You die your score was X ")
+      location.reload();
     }
+
   }
   // Colision para invaderaformas
   function collisionCheck(p1, invader) {

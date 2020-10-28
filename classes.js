@@ -135,12 +135,6 @@ class Nave1 extends MotherShip {
   shoot(shoot) {
     if (shoot == "SHOOT") {
       shoots.push(new Shots(this.x+(this.width*0.5 ), this.y))
-
-
-
-      // console.log('pew pew')
-      // console.log(shoots)
-
     }
   }
   move(direction) {
