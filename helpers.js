@@ -18,6 +18,7 @@ function bounds() {
   // p1.touched = false
   invaders.forEach(invadr => {
     var direction = collisionCheck(p1, invadr)
+
     if (direction == "left" || direction == "right") {
       p1.touched = true
 
@@ -43,6 +44,28 @@ function bounds() {
 
     }
   })
+
+  shoots.forEach(bullet=>{
+    invaders.forEach(invadr => {
+
+      let invdrDirOfBulletTouch = collisionCheck(invadr,bullet)
+      // var direction = shotCheck(p1, invShot)
+      if (invdrDirOfBulletTouch == "left" || invdrDirOfBulletTouch == "right") {
+        invadr.touched = true
+
+      } else if (invdrDirOfBulletTouch == "bottom") {
+        invadr.touched = true
+
+      } else if (invdrDirOfBulletTouch == "top") {
+        invadr.touched = true
+
+      }
+
+    })
+  })
+
+
+
 
 
   if (p1.touched) {
