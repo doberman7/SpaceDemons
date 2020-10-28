@@ -86,14 +86,16 @@ function bounds() {
 }
 //gameover
 function gameover(){
+  //mensaje de game Over en grande
   p1.isAlive = false
   ctx.fillStyle = "white"
   ctx.font = "90px Arial"
   ctx.fillText("Game Over ", 140, $canvas.height / 2)
-
+  //ultiimo mensaje con puntaje
   ctx.font = "20px Arial"
-  ctx.fillText(`Lo mejor que pudiste fue: ${score}`, 50, $canvas.height-40)
-
+  ctx.fillText(`Lo mejor que pudiste fue: ${score} space demons`, 50, $canvas.height-40)
+  //mensaje de reinicio en rojo
+  ctx.fillStyle = "white"
   ctx.fillText("Reiniciando juego", 50, $canvas.height-10)
   setInterval(function(){
     location.reload();
