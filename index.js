@@ -26,7 +26,6 @@ window.onload = () => {
     invaders.forEach(element => {
       element.moveInvader()
       element.shoot()
-      console.log(invadersShots)
       // console.log(invaders)
     });
     clearCanvas()
@@ -46,7 +45,7 @@ window.onload = () => {
     })
     bounds()
     // drawObstacles()
-    // printScore()
+    printScore()
   }
 
   function start() {

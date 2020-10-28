@@ -17,7 +17,7 @@ function drawInvaders() {
 function bounds() {
   // p1.touched = false
   invaders.forEach(invadr => {
-    var direction = collisionCheck(p1, invadr)
+    let direction = collisionCheck(p1, invadr)
     if (direction == "left" || direction == "right") {
       p1.touched = true
 
@@ -31,7 +31,7 @@ function bounds() {
   })
 
   invadersShots.forEach(invShot=>{
-    var direction = shotCheck(p1, invShot)
+    let direction = shotCheck(p1, invShot)
     if (direction == "left" || direction == "right") {
       p1.touched = true
 
@@ -45,13 +45,14 @@ function bounds() {
   })
   shoots.forEach(shot=>{
     invaders.forEach(invader=>{
-      var direction = shotCheck(invader, shot)
+      let direction = shotCheck(invader, shot)
       if (direction == "left" || direction == "right") {
         invader.touched = true
         console.log("al lado")
         ctx.fillStyle = "white"
         ctx.font = "30px arial" //condicion para aumentar el score
           score++
+        removeInvader(invader)
         ctx.fillText(`Score: ${score}`, 200, 30)
   
       } else if (direction == "bottom") {
@@ -60,6 +61,7 @@ function bounds() {
         ctx.fillStyle = "white"
         ctx.font = "30px arial" //condicion para aumentar el score
           score++
+        removeInvader(invader)
         ctx.fillText(`Score: ${score}`, 200, 30)
   
       } else if (direction == "top") {
@@ -68,6 +70,7 @@ function bounds() {
         ctx.fillStyle = "white"
         ctx.font = "30px arial" //condicion para aumentar el score
           score++
+        removeInvader(invader)
         ctx.fillText(`Score: ${score}`, 200, 30)
   
       }
@@ -88,17 +91,17 @@ function bounds() {
 }
 // Colision para invaderaformas
 function collisionCheck(p1, invader) {
-  var vectorX = p1.x + p1.width / 2 - (invader.x + invader.width / 2)
-  var vectorY = p1.y + p1.height / 2 - (invader.y + invader.height / 2)
+  let vectorX = p1.x + p1.width / 2 - (invader.x + invader.width / 2)
+  let vectorY = p1.y + p1.height / 2 - (invader.y + invader.height / 2)
 
-  var halfWidths = p1.width / 2 + invader.width / 2
-  var halfHeights = p1.height / 2 + invader.height / 2
+  let halfWidths = p1.width / 2 + invader.width / 2
+  let halfHeights = p1.height / 2 + invader.height / 2
 
-  var collisionDirection = null
+  let collisionDirection = null
 
   if (Math.abs(vectorX) < halfWidths && Math.abs(vectorY) < halfHeights) {
-    var offsetX = halfWidths - Math.abs(vectorX)
-    var offsetY = halfHeights - Math.abs(vectorY)
+    let offsetX = halfWidths - Math.abs(vectorX)
+    let offsetY = halfHeights - Math.abs(vectorY)
     if (offsetX < offsetY) {
       if (vectorX > 0) {
         collisionDirection = "left"
@@ -122,17 +125,17 @@ function collisionCheck(p1, invader) {
 
 //Colision para Invadershots
 function shotCheck(p1, invaderShot) {
-  var vectorX = p1.x + p1.width / 2 - (invaderShot.x + invaderShot.width / 2)
-  var vectorY = p1.y + p1.height / 2 - (invaderShot.y + invaderShot.height / 2)
+  let vectorX = p1.x + p1.width / 2 - (invaderShot.x + invaderShot.width / 2)
+  let vectorY = p1.y + p1.height / 2 - (invaderShot.y + invaderShot.height / 2)
 
-  var halfWidths = p1.width / 2 + invaderShot.width / 2
-  var halfHeights = p1.height / 2 + invaderShot.height / 2
+  let halfWidths = p1.width / 2 + invaderShot.width / 2
+  let halfHeights = p1.height / 2 + invaderShot.height / 2
 
-  var collisionDirection = null
+  let collisionDirection = null
 
   if (Math.abs(vectorX) < halfWidths && Math.abs(vectorY) < halfHeights) {
-    var offsetX = halfWidths - Math.abs(vectorX)
-    var offsetY = halfHeights - Math.abs(vectorY)
+    let offsetX = halfWidths - Math.abs(vectorX)
+    let offsetY = halfHeights - Math.abs(vectorY)
     if (offsetX < offsetY) {
       if (vectorX > 0) {
         collisionDirection = "left"
@@ -158,6 +161,14 @@ function shotCheck(p1, invaderShot) {
 function printScore() {
   ctx.fillStyle = "white"
   ctx.font = "30px arial" //condicion para aumentar el score
-    score++
   ctx.fillText(`Score: ${score}`, 200, 30)
+}
+
+
+// funcion para eliminar invader
+function removeInvader(invader){
+  
+  const index=invaders.indexOf(invader)
+  invaders.splice(index,1)
+  console.log(invader)
 }
