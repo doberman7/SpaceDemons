@@ -72,6 +72,7 @@ function generateInvaders() {
   }
 
   function gameOver() {
+  clearCanvas()
   clearInterval(intervalId)
   intervalId = null
   ctx.fillStyle = "black"
