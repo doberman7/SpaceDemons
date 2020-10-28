@@ -117,7 +117,7 @@ class Nave1 extends MotherShip {
     this.y = $canvas.height * .9
     this.img = new Image()
     this.img.src = './images/nave1.png'
-    this.grounded = false
+    this.touched = false
   }
   // should return "NAME has received DAMAGE points of damage", if the Nave1 is still alive
   receiveDamage(damage) {
@@ -135,12 +135,6 @@ class Nave1 extends MotherShip {
   shoot(shoot) {
     if (shoot == "SHOOT") {
       shoots.push(new Shots(this.x+(this.width*0.5 ), this.y))
-
-
-
-      // console.log('pew pew')
-      // console.log(shoots)
-
     }
   }
   move(direction) {
@@ -161,6 +155,7 @@ class Nave1 extends MotherShip {
         throw new Error("Invalid direction")
     }
   }
+<<<<<<< HEAD
   // isTouching(invader) {
   //   if (
   //     // this.x + this.width == invader.x + invader.width &&
@@ -169,6 +164,10 @@ class Nave1 extends MotherShip {
   //   ) 
 
   //}
+=======
+
+
+>>>>>>> d38fa8c8a18cdbdf76a744bf1f4e2ef1f1099538
 }
 
 

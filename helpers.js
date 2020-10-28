@@ -16,10 +16,11 @@ function generateInvaders() {
   }
 
   function bounds() {
-    p1.grounded = false
+    p1.touched = false
     invaders.forEach(invadr => {
       var direction = collisionCheck(p1, invadr)
       if (direction == "left" || direction == "right") {
+<<<<<<< HEAD
         console.log("toque lateral")
         gameOver()
         // p1.velX = 0
@@ -30,12 +31,25 @@ function generateInvaders() {
       } else if (direction == "top") {
         console.log("toque inf" )
         gameOver()
+=======
+        p1.touched = true
+
+      } else if (direction == "bottom") {
+        p1.touched = true
+
+      } else if (direction == "top") {
+        p1.touched = true
+
+>>>>>>> d38fa8c8a18cdbdf76a744bf1f4e2ef1f1099538
       }
     })
 
-    if (p1.grounded) {
-      p1.velY = 0
+
+    if (p1.touched) {
+      // alert("You die your score was X ")
+      location.reload();
     }
+
   }
   // Colision para invaderaformas
   function collisionCheck(p1, invader) {

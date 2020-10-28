@@ -24,7 +24,10 @@ window.onload = () => {
     generateInvaders()
     invaders.forEach(element => {
       element.moveInvader()
+<<<<<<< HEAD
       // p1.isTouching(element)
+=======
+>>>>>>> d38fa8c8a18cdbdf76a744bf1f4e2ef1f1099538
       // console.log(invaders)
     });
     clearCanvas()
