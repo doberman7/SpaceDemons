@@ -48,7 +48,7 @@ function bounds() {
   shoots.forEach(bullet=>{
     invaders.forEach(invadr => {
 
-      let invdrDirOfBulletTouch = collisionCheck(invadr,bullet)
+      let invdrDirOfBulletTouch = collisionInvCheck(invadr,bullet)
       // var direction = shotCheck(p1, invShot)
       if (invdrDirOfBulletTouch == "left" || invdrDirOfBulletTouch == "right") {
         invadr.touched = true
@@ -58,6 +58,7 @@ function bounds() {
 
       } else if (invdrDirOfBulletTouch == "top") {
         invadr.touched = true
+        debugger
 
       }
 
@@ -140,6 +141,40 @@ function shotCheck(p1, invaderShot) {
       } else {
         collisionDirection = "bottom"
         p1.y -= offsetY
+      }
+    }
+  }
+  return collisionDirection
+}
+
+//Colision para p1 bullets to nivader
+function collisionInvCheck(invadr, bullet) {
+  var vectorX = invadr.x + invadr.width / 2 - (bullet.x + bullet.width / 2)
+  var vectorY = invadr.y + invadr.height / 2 - (bullet.y + bullet.height / 2)
+
+  var halfWidths = invadr.width / 2 + bullet.width / 2
+  var halfHeights = invadr.height / 2 + bullet.height / 2
+
+  var collisionDirection = null
+
+  if (Math.abs(vectorX) < halfWidths && Math.abs(vectorY) < halfHeights) {
+    var offsetX = halfWidths - Math.abs(vectorX)
+    var offsetY = halfHeights - Math.abs(vectorY)
+    if (offsetX < offsetY) {
+      if (vectorX > 0) {
+        collisionDirection = "left"
+        invadr.x += offsetX
+      } else {
+        collisionDirection = "right"
+        invadr.x -= offsetX
+      }
+    } else {
+      if (vectorY > 0) {
+        collisionDirection = "top"
+        invadr.y += offsetY
+      } else {
+        collisionDirection = "bottom"
+        invadr.y -= offsetY
       }
     }
   }
