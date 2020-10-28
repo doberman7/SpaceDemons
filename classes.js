@@ -29,6 +29,7 @@ class MotherShip {
     this.img = new Image()
     this.img.src = "./images/nave1.png"
     this.vel = 10
+    this.isAlive = true
   }
   attack() {
     return this.strength

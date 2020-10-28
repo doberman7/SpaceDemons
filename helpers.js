@@ -48,28 +48,27 @@ function bounds() {
       let direction = shotCheck(invader, shot)
       if (direction == "left" || direction == "right") {
         invader.touched = true
-        console.log("al lado")
         ctx.fillStyle = "white"
         ctx.font = "30px arial" //condicion para aumentar el score
-          score++
+        //   score++
         removeInvader(invader)
         ctx.fillText(`Score: ${score}`, 200, 30)
 
       } else if (direction == "bottom") {
         invader.touched = true
-        console.log("abajo")
         ctx.fillStyle = "white"
         ctx.font = "30px arial" //condicion para aumentar el score
+        if (p1.isAlive==true) {
           score++
+        }
         removeInvader(invader)
         ctx.fillText(`Score: ${score}`, 200, 30)
 
       } else if (direction == "top") {
         invader.touched = true
-        console.log("arriba")
         ctx.fillStyle = "white"
         ctx.font = "30px arial" //condicion para aumentar el score
-          score++
+        //   score++
         removeInvader(invader)
         ctx.fillText(`Score: ${score}`, 200, 30)
 
@@ -87,6 +86,7 @@ function bounds() {
 }
 //gameover
 function gameover(){
+  p1.isAlive = false
   ctx.fillStyle = "white"
   ctx.font = "100px Arial"
   ctx.fillText("Game Over", 140, $canvas.height / 2)
