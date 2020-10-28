@@ -48,8 +48,13 @@ function bounds() {
 
   compareP1bulletsVSinvaders()
 
-  if (p1.touched) {
-    gameOver()
+  if (p1.touched==true) {
+    ctx.fillStyle = "white"
+    ctx.font = "100px Arial"
+    ctx.fillText("Game Over", 140, $canvas.height / 2)
+    setInterval(function() {
+      location.reload();
+    }, 2000);;
   }
 
 }
@@ -79,14 +84,7 @@ function scored(invadr) {
 }
 
 
-function gameOver(){
-  ctx.fillStyle = "white"
-  ctx.font = "100px Arial"
-  ctx.fillText("Game Over", 140, $canvas.height / 2)
-  setInterval(function() {
-    location.reload();
-  }, 4000);;
-}
+
 
 // Colision para invaderaformas
 function collisionCheck(p1, invader) {
@@ -138,18 +136,18 @@ function shotCheck(p1, invaderShot) {
     if (offsetX < offsetY) {
       if (vectorX > 0) {
         collisionDirection = "left"
-        p1.x += offsetX
+        // p1.x += offsetX
       } else {
         collisionDirection = "right"
-        p1.x -= offsetX
+        // p1.x -= offsetX
       }
     } else {
       if (vectorY > 0) {
         collisionDirection = "top"
-        p1.y += offsetY
+        // p1.y += offsetY
       } else {
         collisionDirection = "bottom"
-        p1.y -= offsetY
+        // p1.y -= offsetY
       }
     }
   }
@@ -173,23 +171,23 @@ function collisionInvCheck(invadr, bullet) {
       if (vectorX > 0) {
         collisionDirection = "left"
         invadr.x += offsetX
-        alert(collisionDirection)
+        // alert(collisionDirection)
       } else {
         collisionDirection = "right"
         invadr.x -= offsetX
-        alert(collisionDirection)
+        // alert(collisionDirection)
 
       }
     } else {
       if (vectorY > 0) {
         collisionDirection = "top"
         invadr.y += offsetY
-        alert(collisionDirection)
+        // alert(collisionDirection)
 
       } else {
         collisionDirection = "bottom"
         invadr.y -= offsetY
-        alert(collisionDirection)
+        // alert(collisionDirection)
 
       }
     }
