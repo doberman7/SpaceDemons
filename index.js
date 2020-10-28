@@ -51,7 +51,7 @@ window.onload = () => {
 
 
     // drawObstacles()
-    // printScore()
+    
   }
 
   function start() {

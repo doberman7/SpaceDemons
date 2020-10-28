@@ -52,13 +52,17 @@ function bounds() {
       // var direction = shotCheck(p1, invShot)
       if (invdrDirOfBulletTouch == "left" || invdrDirOfBulletTouch == "right") {
         invadr.touched = true
+        score += 1
+        alert(score)
 
       } else if (invdrDirOfBulletTouch == "bottom") {
-        invadr.touched = true
+        // invadr.touched = true
 
       } else if (invdrDirOfBulletTouch == "top") {
         invadr.touched = true
-        debugger
+        score += 1
+        alert(score)
+
 
       }
 
@@ -149,17 +153,17 @@ function shotCheck(p1, invaderShot) {
 
 //Colision para p1 bullets to nivader
 function collisionInvCheck(invadr, bullet) {
-  var vectorX = invadr.x + invadr.width / 2 - (bullet.x + bullet.width / 2)
-  var vectorY = invadr.y + invadr.height / 2 - (bullet.y + bullet.height / 2)
+  let vectorX = invadr.x + invadr.width / 2 - (bullet.x + bullet.width / 2)
+  let vectorY = invadr.y + invadr.height / 2 - (bullet.y + bullet.height / 2)
 
-  var halfWidths = invadr.width / 2 + bullet.width / 2
-  var halfHeights = invadr.height / 2 + bullet.height / 2
+  let halfWidths = invadr.width / 2 + bullet.width / 2
+  let halfHeights = invadr.height / 2 + bullet.height / 2
 
-  var collisionDirection = null
+  let collisionDirection = null
 
   if (Math.abs(vectorX) < halfWidths && Math.abs(vectorY) < halfHeights) {
-    var offsetX = halfWidths - Math.abs(vectorX)
-    var offsetY = halfHeights - Math.abs(vectorY)
+    let offsetX = halfWidths - Math.abs(vectorX)
+    let offsetY = halfHeights - Math.abs(vectorY)
     if (offsetX < offsetY) {
       if (vectorX > 0) {
         collisionDirection = "left"
