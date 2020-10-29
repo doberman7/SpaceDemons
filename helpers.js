@@ -107,8 +107,11 @@ function gameover(){
   ctx.fillStyle = "white"
   ctx.fillText("Reiniciando juego", 50, $canvas.height-10)
   setInterval(function(){
+    clearInterval(intervalId);
+  }, 3000);
+  setInterval(function(){
     location.reload();
-  }, 4000);
+  }, 3500);
   ;
 }
 
