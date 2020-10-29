@@ -58,18 +58,4 @@ function start() {
   intervalId = setInterval(update, 1000 / 60)
 }
 
-$startBtn.onclick = ()=>{
-  clearCanvas()
-  start()
-}
-
-
-
-  
-
-
-
-
-
-
-
+$startBtn.onclick = start, clearCanvas
