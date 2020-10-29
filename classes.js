@@ -422,7 +422,7 @@ class StartBoard {
     ctx.fillRect(0,340,400,80)
     ctx.font="18px Arial"
     ctx.fillStyle="white"
-    ctx.fillText("A través de la galaxia, el jugador se embarca ",5,360)
+    ctx.fillText("Prueba de cambios ",5,360)
     ctx.fillText("en una misión para eliminar a los demonios",5,380)
     ctx.fillText("intergalácticos que se atraviesan a su paso.",5,400)
   }
