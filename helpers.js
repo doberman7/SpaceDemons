@@ -20,6 +20,14 @@ function generateInvaders() {
 }
 
 function spaceDemonsActivated() {
+  let demonsActivatedText = document.getElementById("Space-Demons-Text");
+  //let display = getComputedStyle(searchbar).display;
+
+  // if (display == "none") {
+    // searchbar.style.display = "block";
+  // } else {
+    demonsActivatedText.style.color = "red";
+  // }
   // ctx.fillStyle = "white"
   // ctx.font = "70px Arial"
   // ctx.fillText("Game Over ", 140, $canvas.height / 2)
@@ -51,7 +59,7 @@ function bounds() {
     }
   })
 
-  invadersShots.forEach(invShot=>{
+  invadersShots.forEach(invShot => {
     let direction = shotCheck(p1, invShot)
     if (direction == "left" || direction == "right") {
       p1.touched = true
@@ -64,8 +72,8 @@ function bounds() {
 
     }
   })
-  shoots.forEach(shot=>{
-    invaders.forEach(invader=>{
+  shoots.forEach(shot => {
+    invaders.forEach(invader => {
       let direction = shotCheck(invader, shot)
       if (direction == "left" || direction == "right") {
         invader.touched = true
@@ -79,7 +87,7 @@ function bounds() {
         invader.touched = true
         ctx.fillStyle = "white"
         ctx.font = "30px arial" //condicion para aumentar el score
-        if (p1.isAlive==true) {
+        if (p1.isAlive == true) {
           score++
         }
         removeInvader(invader)
@@ -106,7 +114,7 @@ function bounds() {
 
 }
 //gameover
-function gameover(){
+function gameover() {
   //mensaje de game Over en grande
   p1.isAlive = false
   ctx.fillStyle = "white"
@@ -114,14 +122,13 @@ function gameover(){
   ctx.fillText("Game Over ", 140, $canvas.height / 2)
   //ultiimo mensaje con puntaje
   ctx.font = "20px Arial"
-  ctx.fillText(`Lo mejor que pudiste fue: ${score} space demon down`, 50, $canvas.height-40)
+  ctx.fillText(`Lo mejor que pudiste fue: ${score} space demon down`, 50, $canvas.height - 40)
   //mensaje de reinicio en rojo
   ctx.fillStyle = "white"
-  ctx.fillText("Reiniciando juego", 50, $canvas.height-10)
-  setInterval(function(){
+  ctx.fillText("Reiniciando juego", 50, $canvas.height - 10)
+  setInterval(function() {
     location.reload();
-  }, 4000);
-  ;
+  }, 4000);;
 }
 
 // Colision para invaderaformas
@@ -201,15 +208,15 @@ function printScore() {
 
 
 // funcion para eliminar invader
-function removeInvader(invader){
+function removeInvader(invader) {
 
-  const index=invaders.indexOf(invader)
-  invaders.splice(index,1)
+  const index = invaders.indexOf(invader)
+  invaders.splice(index, 1)
   console.log(invader)
 }
 
 function clearElements() {
   invadersShots = [...invadersShots].filter(o => o.y <= $canvas.height)
-  shoots=[...shoots].filter(o=> o.y>=0+o.height)
-  invaders=[...invaders].filter(o=>o.y <= $canvas.height)
+  shoots = [...shoots].filter(o => o.y >= 0 + o.height)
+  invaders = [...invaders].filter(o => o.y <= $canvas.height)
 }

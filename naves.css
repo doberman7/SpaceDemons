@@ -7,7 +7,13 @@ canvas {
   /*background-color: rgba(255,255,255,.5);
   /* align-items: center; */
 }
-#Space-Demons-Activated{
+#Space-Demons-Text{
+  display:block;
+  color: black;
+}
+
+/* #Space-Demons-Activated{
+  display: inline;
   display:none;
   color: red
-}
+} */
