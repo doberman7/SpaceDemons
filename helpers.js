@@ -111,7 +111,7 @@ function gameover(){
   }, 3000);
   setInterval(function(){
     location.reload();
-  }, 4500);
+  }, 3500);
   ;
 }
 
