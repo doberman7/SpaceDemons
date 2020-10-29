@@ -10,7 +10,7 @@ function generateInvaders() {
   }
   //si mueres animacion de morir
   if (p1.isAlive ===false) {
-    // invaders.push(new Nave1($canvas.width * 0.4, 0))
+    p1.img.src = './images/nave1Dead2.png'
   }
   //boss
   if (score > 3 && score < 10 ) {
