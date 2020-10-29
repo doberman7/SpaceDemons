@@ -195,3 +195,9 @@ function removeInvader(invader){
   invaders.splice(index,1)
   console.log(invader)
 }
+
+function clearElements() {
+  invadersShots = [...invadersShots].filter(o => o.y <= $canvas.height)
+  shoots=[...shoots].filter(o=> o.y>=0+o.height)
+  invaders=[...invaders].filter(o=>o.y <= $canvas.height)
+}

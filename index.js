@@ -47,6 +47,7 @@ function update() {
   bounds()
   // drawObstacles()
   printScore()
+  clearElements()
 }
 
 function clearCanvas() {
