@@ -9,14 +9,26 @@ function generateInvaders() {
     invaders.push(new Nave4($canvas.width * 0.4, 0))
   }
   //si mueres animacion de morir
-  if (p1.isAlive ===false) {
-    p1.img.src = './images/nave1Dead2.png'
+  if (p1.isAlive === false) {
+    yourDeath()
   }
   //boss
-  if (score > 3 && score < 10 ) {
-    invaders.push(new Nave4($canvas.width * 0.4, 0))
+  if (score > 0 && score < 10 || score > 20) {
+    spaceDemonsActivated()
 
   }
+}
+
+function spaceDemonsActivated() {
+  // ctx.fillStyle = "white"
+  // ctx.font = "70px Arial"
+  // ctx.fillText("Game Over ", 140, $canvas.height / 2)
+  invaders.push(new Nave4($canvas.width * 0.4, 0))
+}
+
+
+function yourDeath() {
+  p1.img.src = './images/nave1Dead2.png'
 }
 
 function drawInvaders() {
